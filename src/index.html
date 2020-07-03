@@ -60,15 +60,12 @@
             <div class="right index-axis">0</div>
             <div class="index-scale">
               <div class="dot" ng-repeat="s in shown" ng-style="{left: s['INDEX'] + '%'}"></div>
-              <!-- <div class="bucket" ng-repeat="b in buckets" style="background: {{b.color}}"></div> -->
-              <!-- <div class="median-dot dot" style="left: {{median}}%"></div> -->
+
               <div class="median" ng-style="{left: median + '%'}">
                 <div class="median-label"><em>Median:</em> {{median}}</div>
               </div>
               <div class="current-dot dot" ng-style="{left: selectedSchool['INDEX'] + '%'}"></div>
-              <!-- <div class="current" style="left: {{selectedSchool['INDEX']}}%"> -->
-                <!-- <div class="strong">{{selectedSchool['INDEX']}}</div> -->
-              <!-- </div> -->
+
             </div>
             <div class="left index-axis">100</div>
           </div>
@@ -112,14 +109,14 @@
           </div>
         </div>
 
-        <div class="source">Source: Office of Superintendent of Public Instruction, 2015-16</div>
-        <div class="credit">AUDREY CARLSEN / THE SEATTLE TIMES</div>
+        <div class="source">Source: Office of Superintendent of Public Instruction, 2019-20</div>
+        <div class="credit">EMILY M. ENG / THE SEATTLE TIMES</div>
 
       </div>
     </responsive-child>
 
     <script>
-      var districtData = <%= JSON.stringify(csv.school_diversity) %>;
+      var districtData = <%= JSON.stringify(csv.school_diversity20) %>;
     </script>
     <script src="app.js" async></script>
     <% if (json.project.production) { %>
