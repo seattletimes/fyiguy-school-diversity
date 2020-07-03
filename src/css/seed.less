@@ -1,0 +1,223 @@
+@import "seattletimes";
+
+body {
+  font-family: @df-sans;
+  font-size: 16px;
+  max-width: 630px;
+  position: relative;
+  margin: auto;
+}
+
+.outer {
+  // border-top: 1px solid @df-border-gray;
+  // border-bottom: 1px solid @df-border-gray;
+  margin: 20px 0;
+  padding: 20px 0;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 22px;
+}
+.chatter {
+  font-family: @df-serif;
+  font-size: 15px;
+  padding-top: 4px;
+  padding-bottom: 10px;
+
+  .note {
+    font-style: italic;
+    font-size: 12px;
+    padding-top: 10px;
+  }
+}
+.note {
+  font-style: italic;
+  padding-top: 10px;
+  font-size: 12px;
+}
+
+.input {
+  display: inline-block;
+}
+
+.radio {
+  font-size: 14px;
+  margin-right: 5px;
+}
+
+.pick {
+  font-style: italic;
+  margin-top: 10px;
+  font-size: 12px;
+  color: @df-middle-gray;
+}
+
+.dropdown {
+  margin-bottom: 20px;
+}
+
+.name {
+  font-family: @df-serif;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+.district {
+  font-size: 13px;
+  font-style: italic;
+  margin-bottom: 2px;
+}
+.total {
+  font-size: 13px;
+}
+
+.index {
+  margin-top: 15px;
+  font-size: 14px;
+
+  .big {
+    font-weight: bold;
+    font-size: 18px;
+  }
+}
+
+.breakdown {
+  margin-top: 36px;
+  text-transform: uppercase;
+  font-size: 8.5px;
+  letter-spacing: 0.1em;
+  // color: @df-middle-gray;
+  font-weight: bold;
+
+  .bar {
+    display: inline-block;
+    // background: #7b5aa6;
+    height: 14px;
+    margin-top: 2px;
+    transition: width 0.6s ease-in-out;
+    min-width: 1px;
+
+    &.thin {
+      min-width: 0px;
+    }
+  }
+  .percent {
+    color: @df-middle-gray;
+    font-weight: 400;
+    font-size: 11px;
+    vertical-align: top;
+    margin-top: 2px;
+    margin-left: 4px;
+    margin-bottom: 12px;
+    display: inline-block;
+
+    &.zero {
+      margin-left: 0;
+    }
+  }
+}
+
+.index-container {
+  .display-flex();
+}
+
+.index-axis {
+  .flex(0 0 10px);
+  font-size: 12px;
+  margin-top: 10px;
+
+  &.right {
+    padding-right: 10px;
+  }
+  &.left {
+    padding-left: 10px;
+  }
+}
+
+.index-scale {
+  .flex(1);
+  margin-top: 10px;
+  position: relative;
+  height: 8px;
+  border-bottom: 1px dashed @df-border-gray;
+}
+
+.bucket {
+  height: 5px;
+  width: 20%;
+  display: inline-block;
+}
+
+.dot {
+  height: 16px;
+  width: 16px;
+  position: absolute;
+  background: @df-middle-gray;
+  border-radius: 50%;
+  opacity: 0.2;
+  transition: left 0.6s ease-in-out;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+
+  &.current-dot {
+    border: 2px solid @df-dark-gray;
+    opacity: 1;
+    background: #7b5aa6;
+    z-index: 99;
+  }
+  &.median-dot {
+    border: 2px solid @df-dark-gray;
+    opacity: 1;
+    background: @df-light-gray;
+    z-index: 98;
+  }
+}
+
+.median, .current {
+  position: absolute;
+  top: 0;
+  height: 30px;
+  border-left: 1px dotted @df-middle-gray;
+  transition: left 0.6s ease-in-out;
+  vertical-align: bottom;
+  padding-top: 20px;
+  font-size: 12px;
+}
+.current {
+  top: -200%;
+  font-size: 11px;
+  font-weight: bold;
+  border-left: 1px dotted black;
+
+  .strong {
+    // font-weight: bold;
+    margin-top: -38px;
+    margin-left: -50%;
+  }
+}
+.median-label {
+  margin-left: -50%;
+  margin-top: 10px;
+  font-size: 11px;
+  color: @df-middle-gray;
+}
+
+.card {
+  padding: 20px 25px;
+  background: @df-off-white;
+  border: 1px solid @df-border-gray;
+
+  @media @mobile {
+    padding: 10px 15px;
+  }
+}
+
+.source {
+  padding-top: 16px;
+  font-style: italic;
+}
+.source, .credit {
+  text-align: right;
+  font-size: 11px;
+  color: rgba(0,0,0,.4);
+}
