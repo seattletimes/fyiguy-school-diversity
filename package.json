@@ -1,26 +1,30 @@
 {
-  "name": "school-diversity",
+  "name": "fyiguy-school-diversity",
   "description": "",
   "version": "0.0.1",
-  "author": "Audrey Carlsen",
+  "author": "emilymeng",
   "repository": {
     "type": "git",
-    "url": "https://github.com/seattletimes/school-diversity.git"
+    "url": "https://github.com/seattletimes/fyiguy-school-diversity.git"
   },
   "dependencies": {
-    "angular": "^1.5.7",
+    "archieml": "^0.4.2",
     "async": "^2.0.0-rc.1",
     "aws-sdk": "^2.2.45",
-    "babelify": "^6.0.2",
+    "babel-preset-env": "^1.6.0",
+    "babelify": "^7.3.0",
+    "browser-pack-flat": "^3.0.5",
     "browserify": "^13.0.0",
     "chalk": "^1.0.0",
     "commonmark": "^0.24.0",
-    "component-responsive-frame": "^1.0.6",
-    "csv": "^0.4.2",
+    "component-responsive-frame": "~1.4.1",
+    "csv": "^5.3.0",
+    "dot": "^1.1.2",
     "exorcist": "^0.4.0",
-    "google-spreadsheets": "^0.5.1",
+    "googleapis": "^45.0.0",
     "grunt": "^1.0.0",
-    "grunt-contrib-watch": "^1.1.0",
+    "grunt-contrib-connect": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
     "less": "^2.6.1",
     "mime": "^1.2.11",
     "resolve": "^1.1.7",
@@ -40,8 +44,5 @@
       "./tasks/lib/browserify-less",
       "./tasks/lib/browserify-text"
     ]
-  },
-  "devDependencies": {
-    "grunt-contrib-connect": "^1.0.2"
   }
 }

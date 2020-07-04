@@ -27,15 +27,28 @@ body {
 
 main {
   display: block;
+
+  &.interactive {
+    padding: 20px 10px;
+    margin: 20px auto;
+    border-top: 1px solid @df-light-gray;
+    border-bottom: 1px solid @df-light-gray;
+    font-family: @df-sans;
+  }
 }
 
 a {
   color: @df-blue;
   text-decoration: none;
-  outline: 0 !important;
-  &:hover {
+
+  &:visited {
+    color: @df-middle-gray;
+  }
+
+  &:hover, &:focus {
     color: @df-navy;
   }
+
   img {
     border: none;
   }
@@ -76,6 +89,51 @@ h4 {
   margin: @df-line-base/2 0 0 0;
 }
 
+
+//common style elements
+.byline {
+  font-size: 19px;
+  margin-bottom: 0;
+}
+.staff-position {
+  font-style: italic;
+  font-size: 15px;
+  margin-top: 0;
+}
+.publish-date {
+  font-size: 16px;
+  font-family: @df-sans;
+  color: @df-middle-gray;
+}
+.graphic-hed {
+  font-family: @df-sans;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+}
+.graphic-chatter {
+  font-family: @df-sans;
+  font-size: 18px;
+  font-weight: normal;
+  text-align: center;
+}
+.data-source, .art-credit, .caption {
+  color: @df-middle-gray;
+  font-family: @df-sans;
+  font-size: 14px;
+}
+.data-source {
+  font-style: italic;
+  @media @tablet-up {
+    float: left;
+  }
+}
+.art-credit {
+  @media @tablet-up {
+    float: right;
+  }
+}
+
 //header and menu
 nav.main-nav {
   background: white;
@@ -83,74 +141,127 @@ nav.main-nav {
   box-shadow: 0 2px 7px rgba(0, 0, 0, .1);
   position: relative;
   line-height: 1;
+  z-index: 999;
 
   .wrapper {
     max-width: 1020px;
     margin: auto;
     position: relative;
     padding: 10px;
-    
-    @media @mobile {
-      padding: 6px;
-    }
   }
 
   .logo {
-    display: block;
+    display: inline-block;
     vertical-align: middle;
-
+    width: 160px;
     img {
-      // width: 310px;
       height: 24px;
       max-height: 100%;
-
-      @media @mobile {
-        height: 18px;
-      }
     }
   }
+}
 
-  .share.top {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-
-    @media @tablet {
-      right: 4px;
-      width: auto !important;
-    }
-
-    label {
-      background: white !important;
-    }
-
-    @media @mobile {
-      top: 6px;
-
-      label {
-        span {
-          display: none;
-        }
-      }
-
-      .left {
-        margin-left: -275px !important;
-      }
-    }
+.share-bar {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  vertical-align: middle;
+}
+.share-icon {
+  margin-left: 3px;
+  margin-right: 3px;
+  width: 30px;
+  &:hover .changes-color {
+    fill: @df-off-black;
   }
 }
 
 .ad {
   text-align: center;
-  padding: 16px 0;
+  margin: 16px auto;
 
-  &.square {
-    float: right;
-    width: 320px;
-
-    @media @mobile {
-      width: 100%;
+  &.pending {
+    &::before {
+      display: block;
+      content: "";
+      background: @df-light-gray;
     }
+
+    &[data-type="banner"],
+    &[data-type="bannerBottom"]{
+      max-width: 728px;
+      &::before {
+        padding-bottom: percentage(90 / 728);
+
+        @media @mobile {
+          padding-bottom: percentage(50 / 300);
+        }
+      }
+    }
+
+    &[data-type="tall"] {
+      max-width: 300px;
+      &::before {
+        padding-bottom: percentage(600 / 300);
+      }
+    }
+
+    &[data-type="square"] {
+      max-width: 300px;
+      &::before {
+        padding-bottom: percentage(250 / 300);
+      }
+    }
+  }
+}
+
+.marketing {
+  font-family: @df-sans;
+  margin: 20px 5px;
+  padding: 10px;
+  text-align: center;
+  width: ~"calc(100% - 10px)";
+}
+.marketing--footer {
+  border: 1px solid @df-light-gray;
+  max-width: 630px;
+  @media (min-width: 640px) {
+    margin: 20px auto;
+    span {
+      white-space: pre;
+    }
+  }
+}
+.marketing--sidebar {
+  border-top: 1px solid @df-light-gray;
+  border-bottom: 1px solid @df-light-gray;
+  max-width: 350px;
+  @media (max-width: 500px) {
+    margin: auto;
+  }
+}
+.marketing__text {
+  margin: 5px auto;
+}
+.marketing__body {
+  font-size: 18px;
+  line-height: 21px;
+}
+.marketing__button {
+  background: @df-blue;
+  border-radius: 3px;
+  color: white;
+  display: inline-block;
+  font-size: 19px;
+  font-weight: bold;
+  margin-top: 3px;
+  padding: 5px 20px;
+  &:hover {
+    color: #fff;
+    background: @df-navy;
+  }
+  &:visited {
+    color: #fff;
   }
 }
 
@@ -215,6 +326,29 @@ nav.main-nav {
       color: @df-blue;
     }
   }
+  .small {
+    font-weight: bold;
+    font-size: 15px;
+  }
+}
+
+.project-credits {
+  padding-top: 10px;
+  max-width: 900px;
+  margin: 10px auto;
+  @media @desktop-up {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 35px;
+  }
+}
+.project-credit {
+  flex-basis: 50%;
+  font-family: @df-sans;
+  font-size: 17px;
+  line-height: 1.2;
+  margin: 3px 0;
+  padding: 0 10px;
 }
 
 footer.nav-bottom {
@@ -226,8 +360,8 @@ footer.nav-bottom {
 
   .logo {
     float: left;
-    margin-right: 10px; 
-    
+    margin-right: 10px;
+
     img {
       margin-top: 5px;
       height: 20px;
@@ -238,15 +372,5 @@ footer.nav-bottom {
     clear: both;
     content: " ";
     display: block;
-  }
-
-  .share.bottom {
-    float: right;
-    margin-top: 2px;
-
-    label {
-      background: black !important;
-      color: white !important;
-    }
   }
 }

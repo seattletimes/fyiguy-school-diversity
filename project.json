@@ -2,7 +2,7 @@
   "s3": {
     "stage": {
       "bucket": "projects-staging.seattletimes.com",
-      "path": "school-diversity"
+      "path": ""
     },
     "live": {
       "bucket": "projects.seattletimes.com",
@@ -11,11 +11,12 @@
   },
   "title": "",
   "description": "",
+  "author": "",
   "url": "",
-  "slug": "",
-  "tags": [],
+  "post_id": 0,
   "image": "assets/social.jpg",
   "sheets": [],
-  "production": false,
-  "embedded": true
+  "docs": [],
+  "embedded": true,
+  "production": false
 }
