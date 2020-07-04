@@ -8,6 +8,7 @@
     "url": "https://github.com/seattletimes/fyiguy-school-diversity.git"
   },
   "dependencies": {
+    "angular": "^1.8.0",
     "archieml": "^0.4.2",
     "async": "^2.0.0-rc.1",
     "aws-sdk": "^2.2.45",
